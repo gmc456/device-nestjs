@@ -23,4 +23,13 @@ export class DevicesController {
   findOne(@Param('id_estacion') id_estacion: string) {
     return this.devicesService.findOne(id_estacion);
   }
+
+  @Get('/get_id/:space/:building')
+  getId(@Param('space') space: string, @Param('building') building: string) {    
+    let result = this.devicesService.getId(space, building).then((value => {
+      var obj = value[0];
+      return obj['id_estacion'];
+    }));
+    return result;
+  }
 }

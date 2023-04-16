@@ -37,4 +37,9 @@ export class DevicesService {
     return this.deviceObjectModel.findOne({ id_estacion: id_estacion }).exec();
   }
 
+  async getId(space: string, building: string): Promise<object> {
+    return this.deviceObjectModel.find({room: space, building: building}, 
+      {id_estacion: 1, _id: 0}).exec();
+  }
+
 }
