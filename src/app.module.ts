@@ -7,7 +7,7 @@ import { DevicesService } from './devices/devices.service';
 import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({
-  imports: [MongooseModule.forRoot('mongodb://localhost:27017/devices_DB'),
+  imports: [MongooseModule.forRoot('mongodb://localhost:27017/devices_PROD'),
   DevicesModule],
   controllers: [AppController],
   providers: [AppService],

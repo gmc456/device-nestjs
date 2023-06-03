@@ -42,4 +42,9 @@ export class DevicesService {
       {id_estacion: 1, _id: 0}).exec();
   }
 
+  async getBuildings(): Promise<Object> {
+    return this.deviceObjectModel.aggregate([{$group: {_id: '$building', room: {$addToSet: "$room"}}},
+    {$project: {building: '$_id', _id: 0, room: "$room"}}]).exec();
+  }
+
 }

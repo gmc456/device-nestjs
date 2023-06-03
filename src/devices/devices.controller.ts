@@ -16,7 +16,7 @@ export class DevicesController {
 
   @Get()
   findAll(@Req() request: Request) {
-    return this.devicesService.findAll(request);
+    return this.devicesService.getBuildings();
   }
       
   @Get(':id_estacion')
@@ -31,5 +31,10 @@ export class DevicesController {
       return obj['id_estacion'];
     }));
     return result;
+  }
+
+  @Get('/get_buildings/:test')
+  getBuildings() {
+    return this.devicesService.getBuildings();
   }
 }
